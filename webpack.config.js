@@ -1,15 +1,12 @@
-// Initialisation
+// forked pretty much ENTIRELY from https://github.com/VD39/es6-webpack-boilerplate/
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-// Constants
 const ENTRY = path.join(__dirname, '/src');
 const OUTPUT = path.join(__dirname, '/public');
 const HOST = 'localhost';
 const PORT = 9000;
-const PROXY = `http://${HOST}:${PORT}`;
 
-// Config
 const config = {
   entry: {
     app: ENTRY
@@ -58,16 +55,6 @@ const config = {
   },
   plugins: [
     new ExtractTextPlugin('assets/css/styles.css'),
-    // new BrowserSyncPlugin(
-    //   {
-    //     host: HOST,
-    //     port: PORT,
-    //     proxy: PROXY
-    //   },
-    //   {
-    //     reload: false
-    //   }
-    // )
   ],
   watch: false
 };
