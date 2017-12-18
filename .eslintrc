@@ -1,0 +1,28 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "env": {
+    "commonjs": true,
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "globals": {},
+  "plugins": [
+    "import",
+    "promise",
+    "compat"
+  ],
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true
+  },
+  "rules": {
+    "comma-dangle": 0,
+    "jsx-a11y/href-no-hash": 0
+    // "linebreak-style": [
+    //   2,
+    //   "windows"
+    // ]
+  }
+}
