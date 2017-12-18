@@ -1,11 +1,8 @@
 import './styles/main.scss';
-import foo from './foo';
+import getRecentGitCommits from './get-git-messages';
 
+function init() {
+  getRecentGitCommits();
+}
 
-const editDom = () => {
-  const root = document.getElementById('root');
-  root.innerHTML = `Hello ${foo()}`;
-};
-
-editDom();
-
+document.addEventListener('DOMContentLoaded', init);
