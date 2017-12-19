@@ -3,7 +3,7 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const ENTRY = path.join(__dirname, '/src');
-const OUTPUT = path.join(__dirname, '/public');
+const OUTPUT = path.join(__dirname, '/dist');
 const HOST = 'localhost';
 const PORT = 9000;
 
