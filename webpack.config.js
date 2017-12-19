@@ -9,7 +9,7 @@ const PORT = 9000;
 
 const config = {
   entry: {
-    app: ENTRY
+    app: `${ENTRY}/js`,
   },
   output: {
     path: OUTPUT,
