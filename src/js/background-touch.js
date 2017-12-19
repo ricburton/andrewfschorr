@@ -6,24 +6,8 @@ export default class backgroundTouch {
   }
 
   transitionTouch(e) {
-    // console.log(e.touches[0].clientX / this.width);
-    console.log(e.touches[0].screenY , this.height);
+    const percentageHeight = e.touches[0].pageY / this.height;
+    const percentageGrey = Math.round(percentageHeight * 255);
+    document.body.style.background = `rgba(${percentageGrey}, ${percentageGrey}, ${percentageGrey}, 0.5)`;
   }
 }
-
-
-var box = elem.getBoundingClientRect();
-
-// var body = document.body;
-// var docEl = document.documentElement;
-
-// var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
-// var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
-
-// var clientTop = docEl.clientTop || body.clientTop || 0;
-// var clientLeft = docEl.clientLeft || body.clientLeft || 0;
-
-// var top  = box.top +  scrollTop - clientTop;
-// var left = box.left + scrollLeft - clientLeft;
-
-// return { top: Math.round(top), left: Math.round(left) };

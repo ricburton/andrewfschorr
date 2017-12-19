@@ -4,6 +4,8 @@ body {
   }
   font-family: 'droid_serifregular', serif;
   font-size: 32px;
+  background: rgba(128, 128, 128, 0.5);
+  transition: background 0.5s ease-in-out;
 }
 
 header {
