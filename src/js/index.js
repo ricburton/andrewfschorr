@@ -11,7 +11,7 @@ function isTouchDevice() {
 document.addEventListener('DOMContentLoaded', () => {
   window.mainController = new MainController();
   window.addEventListener('resize', _.throttle(window.mainController.delegateResize.bind(window.mainController), 250));
-  getRecentGitCommits(window.mainController.addCommitMessages.bind(this));
+  getRecentGitCommits(window.mainController.addCommitMessages.bind(window.mainController));
 });
 
 class MainController {
@@ -37,15 +37,21 @@ class MainController {
   // ADD date/ time and repo!
   addCommitMessages(data) {
     const commandLineEl = document.querySelector('.command-line');
-    let curIdx = 1;
-    commandLineEl.innerHTML = data[curIdx++];
+    let curIdx = 0;
+    commandLineEl.innerHTML = data[curIdx];
+
     function rotateCommitMessage() {
       setTimeout(() => {
-        commandLineEl.innerHTML = data[curIdx++ % data.length - 1];
-        rotateCommitMessage();
+        const commitMessage = data[++curIdx % data.length];
+        commandLineEl.innerHTML = commitMessage;
+        this.typeOutCommitMessage(commitMessage)
+        rotateCommitMessage.call(this);
       }, 1000);
     }
+    rotateCommitMessage.call(this);
+  }
 
-    rotateCommitMessage();
+  typeOutCommitMessage(s) {
+    console.log(s);
   }
 }

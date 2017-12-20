@@ -105,7 +105,7 @@ header {
     margin-bottom: 20px;
     text-align: center;
     border-bottom: 1px solid $color-black;
-    font-size: 51px;
+    font-size: 64px;
   }
 }
 
@@ -118,11 +118,12 @@ header {
     a {
       display: block;
       padding-bottom: 15px;
+      font-size: 14px;
     }
 
     span {
       line-height: 26px;
-      font-size: 13px;
+      font-size: 12px;
       padding: 0 30px
     }
 
