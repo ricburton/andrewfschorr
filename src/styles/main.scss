@@ -1,24 +1,146 @@
+$color-black: rgba(0, 0, 0, 0.78);
+$light-color: rgba(128, 128, 128, 0.5);
+
 body {
+  color: $color-black;
+
   * {
     box-sizing: border-box;
   }
-  font-family: 'droid_serifregular', serif;
-  font-size: 32px;
-  background: rgba(128, 128, 128, 0.5);
-  transition: background 0.5s ease-in-out;
+  .wrapper {
+    font-family: 'droid_serifregular', serif;
+    font-size: 32px;
+    background: $light-color;
+    transition: background 0.5s ease-in-out;
+    margin: 25px;
+    padding-bottom: 120px;
+  }
+
+  code {
+    font-family: monospace;
+  }
 }
 
 header {
+  position: relative;
+
+  .background-light-text {
+    text-shadow: 2px 2px 4px $light-color;
+  }
+
   h1 {
     font-size: 70px;
+    position: absolute;
+    top: 12%;
+    left: 3%;
+    font-weight: 800;
   }
-  h3 {
-    font-size: 65px;
+  .about {
+    position: absolute;
+    bottom: 9%;
+    right: 3%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+    h3 {
+      font-size: 65px;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+    span {
+      position: absolute;
+      font-weight: 800;
+      color: rgba(255,255,255,0.7);
+      font-size: 130px;
+      z-index: 9;
+    }
   }
   .profile {
     border-radius: 100%;
     width: 100%;
-    padding: 7.5%;
+    padding: 15%;
     opacity: 0.8;
   }
+}
+.social ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0 60px;
+
+  li {
+    svg {
+      width: 100px;
+      height: 60px;
+      fill: $color-black;
+    }
+    a {
+      cursor: pointer;
+    }
+  }
+}
+
+.git {
+  padding: 60px;
+
+  .prompt {
+    font-size: 19px;
+    padding-bottom: 20px;
+    display: block;
+  }
+  .command-line {
+    background: #fff;
+    display: block;
+    padding: 15px;
+  }
+}
+
+.heading {
+  text-align: center;
+  h4 {
+    display: inline-block;
+    padding: 40px 50px 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 1px solid $color-black;
+    font-size: 51px;
+  }
+}
+
+.list {
+  li {
+    text-align: center;
+    padding: 55px 55px;
+    font-size: 14px;
+
+    a {
+      display: block;
+      padding-bottom: 15px;
+    }
+
+    span {
+      line-height: 26px;
+      font-size: 13px;
+      padding: 0 30px
+    }
+
+    span {
+      font-family: droid_serifitalic;
+    }
+  }
+}
+
+a {
+  color: $color-black;
+}
+
+.footer {
+  background: $color-black;
+  color: #fff;
+  height: 60px;
+  padding-left: 25px;
+  display: flex;
+  align-items: center;
 }
