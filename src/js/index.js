@@ -36,22 +36,35 @@ class MainController {
 
   // ADD date/ time and repo!
   addCommitMessages(data) {
-    const commandLineEl = document.querySelector('.command-line');
-    let curIdx = 0;
-    commandLineEl.innerHTML = data[curIdx];
-
-    function rotateCommitMessage() {
-      setTimeout(() => {
-        const commitMessage = data[++curIdx % data.length];
-        commandLineEl.innerHTML = commitMessage;
-        this.typeOutCommitMessage(commitMessage)
-        rotateCommitMessage.call(this);
-      }, 1000);
-    }
-    rotateCommitMessage.call(this);
+    this.commitMessages = data;
+    this.curCommitMessageI = 0;
+    this.commitRepoEl = document.querySelector('.commit-repo');
+    this.commitDateEl = document.querySelector('.commit-date');
+    this.typeOutCommitMessage(this.commitMessages[this.curCommitMessageI++]);
   }
 
-  typeOutCommitMessage(s) {
-    console.log(s);
+  typeOutCommitMessage(commitObj) {
+    const commandLineTextEl = document.querySelector('.cl-text');
+    let sIdx = 0;
+    let curString = '';
+    const s = commitObj.commit;
+
+    this.commitRepoEl.innerHTML = `Pushed to <a target="_blank" href="http://github.com/${commitObj.repo}">${commitObj.repo}</a>`;
+    this.commitDateEl.innerHTML = `On ${commitObj.dateTime}`;
+
+    function addToString(){
+      setTimeout(() => {
+        curString += s[sIdx++];
+        commandLineTextEl.innerHTML = curString;
+        if (sIdx < s.length) {
+          addToString.call(this);
+        } else {
+          setTimeout(() => {
+            this.typeOutCommitMessage(this.commitMessages[this.curCommitMessageI++ % this.commitMessages.length]);
+          }, 1000);
+        }
+      }, Math.random() * 200);
+    }
+    addToString.call(this);
   }
 }

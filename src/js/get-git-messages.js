@@ -1,47 +1,31 @@
+import data from './dummy-commits';
+import moment from 'moment';
+
 const endpoint = 'https://api.github.com/users/andrewfschorr/events';
 
 function getRecentGitCommits(cb) {
-  const dummy = [
-    "did stuff",
-    "pretty colorz n ish",
-    "did random ish",
-    "Added fetch ish",
-    "idk, tryin shit out",
-    // "string compression",
-    // "fuck matrix multiplication",
-    // "require syntax to be able to run from the command line",
-    // "1.5",
-    // "Added 1.4",
-    // "1.3 okokok",
-    // "Added 1.2",
-    // "Added README goodness",
-    // "testing",
-    // "got test setup working",
-    // "did stuff",
-    // "Added js model",
-    // "idk",
-    // "adding stuff",
-    // "added sql",
-    // "updated to webpack 3 n other important ass stuff",
-    // "added fetch function thing",
-  ];
-
-  cb(dummy);
-  // fetch(endpoint).then(resp => resp.json()).then((data) => {
-  //   // console.log(data);
-  //   const commitMessages = data.filter((evt) => {
-  //     return evt.type === 'PushEvent';
-  //   }).map((evt) => {
-  //     return evt.payload.commits;
-  //   }).reduce((prev, cur) => {
-  //     return prev.concat(cur);
-  //   }).map((item) => {
-  //     return item.message;
-  //   });
-  //   return commitMessages;
-  // }).catch((err) => {
-  //   throw new Error(err);
-  // });
+  // const dateData = data.map((obj) => {
+  //   return obj;
+  // })
+  // cb(dateData);
+  fetch(endpoint).then(resp => resp.json()).then((data) => {
+    const pushEvents = data.filter((evt) => {
+      return evt.type === 'PushEvent';
+    });
+    const commitObjs = [];
+    pushEvents.forEach((pushEvt) => {
+      pushEvt.payload.commits.forEach((commit) => {
+        commitObjs.push({
+          commit: commit.message,
+          dateTime: moment(pushEvt.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a'),
+          repo: pushEvt.repo.name,
+        })
+      })
+    });
+    cb(commitObjs);
+  }).catch((err) => {
+    throw new Error(err);
+  });
 }
 
 export default getRecentGitCommits;

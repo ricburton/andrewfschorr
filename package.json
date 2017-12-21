@@ -15,7 +15,8 @@
     "dev": "webpack-dev-server"
   },
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "moment": "^2.20.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.4",
