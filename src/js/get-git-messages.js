@@ -4,10 +4,6 @@ import moment from 'moment';
 const endpoint = 'https://api.github.com/users/andrewfschorr/events';
 
 function getRecentGitCommits(cb) {
-  // const dateData = data.map((obj) => {
-  //   return obj;
-  // })
-  // cb(dateData);
   fetch(endpoint).then(resp => resp.json()).then((data) => {
     const pushEvents = data.filter((evt) => {
       return evt.type === 'PushEvent';
@@ -24,6 +20,7 @@ function getRecentGitCommits(cb) {
     });
     cb(commitObjs);
   }).catch((err) => {
+    cb(data);
     throw new Error(err);
   });
 }
