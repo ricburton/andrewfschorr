@@ -49,7 +49,7 @@ class MainController {
     let curString = '';
     const s = commitObj.commit;
 
-    this.commitRepoEl.innerHTML = `Pushed to <a target="_blank" href="http://github.com/${commitObj.repo}">${commitObj.repo}</a>`;
+    this.commitRepoEl.innerHTML = `Commit to <a target="_blank" href="http://github.com/${commitObj.repo}">${commitObj.repo}</a>`;
     this.commitDateEl.innerHTML = `On ${commitObj.dateTime}`;
 
     function addToString(){
