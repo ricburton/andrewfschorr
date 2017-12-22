@@ -2,6 +2,7 @@ $color-black: rgba(0, 0, 0, 0.78);
 $light-color: rgba(128, 128, 128, 0.5);
 
 body {
+    font-family: 'droid_serifregular', serif;
     color: $color-black;
 
     * {
@@ -9,7 +10,6 @@ body {
     }
 
     .wrapper {
-        font-family: 'droid_serifregular', serif;
         font-size: 32px;
         background: $light-color;
         transition: background 0.5s ease-in-out;
@@ -192,6 +192,7 @@ a {
     padding: 0 25px;
     display: flex;
     align-items: center;
+    font-size: 12px;
 
     .signature {
         margin-left: auto;
