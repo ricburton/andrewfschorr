@@ -15,6 +15,7 @@ function getRecentGitCommits(cb) {
                     commit: commit.message,
                     dateTime: moment(pushEvt.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a'),
                     repo: pushEvt.repo.name,
+                    commitUrl: `https://github.com/${pushEvt.repo.name}/commit/${commit.sha}`,
                 })
             })
         });

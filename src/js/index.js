@@ -50,7 +50,7 @@ class MainController {
     const s = commitObj.commit;
 
     this.commitRepoEl.innerHTML = `Commit to <a target="_blank" href="http://github.com/${commitObj.repo}">${commitObj.repo}</a>`;
-    this.commitDateEl.innerHTML = `On ${commitObj.dateTime}`;
+    this.commitDateEl.innerHTML = `On <a href="${commitObj.commitUrl}" target="_blank">${commitObj.dateTime}</a>`;
 
     function addToString(){
       setTimeout(() => {
