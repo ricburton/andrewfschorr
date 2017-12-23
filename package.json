@@ -12,7 +12,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config=webpack.prod.config.js",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "deploy": "yarn run build && git push grid master"
   },
   "dependencies": {
     "lodash": "^4.17.4",
