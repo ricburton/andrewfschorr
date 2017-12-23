@@ -2,6 +2,7 @@
 
 Feel free to use. :)
 
-## License
+`git push grid master`
 
+## License
 MIT
