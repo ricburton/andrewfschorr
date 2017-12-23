@@ -205,7 +205,9 @@ a {
 }
 
 @media screen and (min-width: 820px) {
-    .wrapper {
+    body .wrapper {
+        transition: none;
+
         display: flex;
         > * {
             flex: 1 0 20%;
