@@ -5,7 +5,7 @@ export default class backgroundDesktop {
     }
 
     transitionMove(e) {
-        const percentageWidth = e.screenX / window.innerWidth;
+        const percentageWidth = e.clientX / window.innerWidth;
         this.changeBgFn(percentageWidth);
     }
 }
