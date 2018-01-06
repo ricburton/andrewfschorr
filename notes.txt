@@ -1,3 +1,3 @@
 Deploy: `git push grid master`
-Run prod assets: `yarn run build``
+Run prod assets: `yarn run build`
 Do both of the above!: `yarn run deploy` (Need to ensure have pushed to origin all updates)
