@@ -84,7 +84,20 @@ header {
         z-index: 3;
     }
 }
+.writing {
+    display: flex;
+    justify-content: center;
+    text-align: center;
 
+    h4 {
+        font-size: 19px;
+        font-family: droid_serifbold;
+        border-bottom: 1px solid $color-black;
+        display: inline-block;
+        padding: 5px 30px;
+        margin-bottom: 20px;
+    }
+}
 .social ul {
     display: flex;
     align-items: center;
